@@ -85,21 +85,36 @@ def Mode_Classique_2() -> None :
 
 ###############################################################################
 # Mode Objet
-def Mode_Objet() -> None:
+def Mode_Objet_0() -> None:
 
   x = np.linspace(0, 2, 100)
   y = x**2
 
-  # fig, ax = plt.subplots()      # An Axes object encapsulates all the elements of an individual (sub-)plot in a figure.
   fig, ax = plt.subplots()      # bien voir le s à subplots
+                                # An Axes object encapsulates all the elements of an individual (sub-)plot in a figure.
   ax.plot(x, y)
   plt.show()
+  plt.close(None)                   # None => close current figure
 
+
+  
+
+
+
+###############################################################################
+# Mode Objet
+def Mode_Objet_1() -> None:
+
+  x = np.linspace(0, 2, 100)
+  y = x**2
+  
   fig, axes = plt.subplots(2, 1, sharex=True) 
-  axes[0].set_ylim([None, 8]) # on peut passer un tuple ou une liste (un iterator)
+  axes[0].set_ylim([None, 8])   # on peut passer un tuple ou une liste (un iterator)
   axes[0].plot(x, y)
   axes[1].plot(x, x**3)
   plt.show()
+  plt.close(None)                   # None => close current figure
+
 
 
 # -----------------------------------------------------------------------------
@@ -157,14 +172,16 @@ def Corrigé2():
 # -----------------------------------------------------------------------------
 def main():
   
-  Mode_Classique_0()
-  Mode_Classique_1()
-  Mode_Classique_2()
+  # Mode_Classique_0()
+  # Mode_Classique_1()
+  # Mode_Classique_2()
   
-  Mode_Objet()
-  Exercice()
-  Corrigé()
-  Corrigé2()
+  # Mode_Objet_0()
+  Mode_Objet_1()
+
+  # Exercice()
+  # Corrigé()
+  # Corrigé2()
 
 if __name__ == '__main__':
   main()
