@@ -90,14 +90,15 @@ def Mode_Objet() -> None:
   x = np.linspace(0, 2, 100)
   y = x**2
 
-  fig, graphe = plt.subplots()      # bien voir le s à subplots
-  graphe.plot(x, y)
+  # fig, ax = plt.subplots()      # An Axes object encapsulates all the elements of an individual (sub-)plot in a figure.
+  fig, ax = plt.subplots()      # bien voir le s à subplots
+  ax.plot(x, y)
   plt.show()
 
-  fig, graphes = plt.subplots(2, 1, sharex=True) 
-  graphes[0].set_ylim([None, 8]) # on peut passer un tuple ou une liste (un iterator)
-  graphes[0].plot(x, y)
-  graphes[1].plot(x, x**3)
+  fig, axes = plt.subplots(2, 1, sharex=True) 
+  axes[0].set_ylim([None, 8]) # on peut passer un tuple ou une liste (un iterator)
+  axes[0].plot(x, y)
+  axes[1].plot(x, x**3)
   plt.show()
 
 
@@ -109,11 +110,11 @@ def Exercice():
   dataset = {f"Experience{i}" : np.random.randn(XMax) for i in range(NbChart)}
 
   # affiche les courbes sur un seule figure
-  fig, graphes = plt.subplots(4, 1, sharex=True)
+  fig, axes = plt.subplots(4, 1, sharex=True)
   fig.suptitle("Titre de la figure")
   for i in range(NbChart):
-    graphes[i].plot(range(XMax), dataset[f"Experience{i}"], label=f"Experience {i}:")
-    graphes[i].legend(loc="upper left")
+    axes[i].plot(range(XMax), dataset[f"Experience{i}"], label=f"Experience {i}:")
+    axes[i].legend(loc="upper left")
   
   plt.show()
 
