@@ -140,7 +140,7 @@ def main():
   # A[B]=0.0
   A[np.isnan(A)]=0.0
   print("\n\n")
-  print("Matrice A avec Nan remplcés par 0.0 : \n", A )
+  print("Matrice A avec Nan remplacés par 0.0 : \n", A )
   print("La nouvelle moyenne de A               :", A.mean())
 
 

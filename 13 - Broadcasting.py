@@ -27,7 +27,7 @@ def main():
 
 
   # -----------------------------------------------------------------------------
-  # Broadcasting = Etendre les dimension d'un tableau
+  # Broadcasting = Etendre les dimensions d'un tableau
   # On peut faire A+2 ou 2 est un scalaire (tableau 1x1)
   print("Matrice A+2: \n", A+2)
 
@@ -50,12 +50,17 @@ def main():
   # Matrice (2,3) et matrice (3,1) NOK
   # Matrice (4,1) et matrice (1,3) OK (on broadcast dans les 2 axes)
 
-  A = np.random.randint(0,100,(4,1))
+  A = np.random.randint(0,100,(4,3))
   print("Matrice A: \n", A)
-
   B = np.ones((1,3))
   print("Matrice B: \n", B)
+  print("Matrice A+B: \n", A+B)
 
+
+  A = np.random.randint(0,100,(4,1))
+  print("Matrice A: \n", A)
+  B = np.ones((1,3))
+  print("Matrice B: \n", B)
   print("Matrice A+B: \n", A+B)
 
    # -----------------------------------------------------------------------------
