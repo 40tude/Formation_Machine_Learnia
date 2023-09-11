@@ -67,7 +67,7 @@ def main():
   
   # ----------------------------------------------
   # subseting
-  B = A[0:2, 0:2]                       # /!\ de 0 à 2 exclu    
+  B = A[0:2, 0:2]                                 # /!\ de 0 à 2 exclu    
   print("Matrice B : \n", B)
 
   A[0:2, 0:2] = 100                               # Initialise une sous-partie de la matrice
@@ -76,7 +76,7 @@ def main():
 
   C = np.array([i for i in range(25)]).reshape(5,5)
   print("Matrice C initiale : \n", C)
-  # sortir les 2 dernières colonnes
+  # copier les 2 dernières colonnes
   # D = C[:, 1:] # on veut pas à partir de la colonne 1 mais les 2 dernières colonnes
   D = C[:,-2:]
   print("2 dernières colonne de C : \n", D)
@@ -98,7 +98,7 @@ def main():
 
   # ----------------------------------------------
   # boolean indexing (utile en ML et DS)
-  A = np.random.randint(0, 10, [5,5])
+  A = np.random.randint(0, 100, [5,5])
   print("Matrice A : \n", A)
   print ("Masque A < 5 : \n", A < 5)            # A<5 retourne un tableau 5x5, un masque
   # Mettre à 10 tous les elements inf à 5
@@ -106,6 +106,7 @@ def main():
   print("Matrice A : \n", A)
 
   A = np.random.randint(0, 10, [5,5])
+  print("Matrice A : \n", A)
   A[(A<5) & (A>2)] = 100            # pas oublier les ( et )
   print("Matrice A : \n", A)
 
@@ -121,23 +122,9 @@ def main():
   B = np.random.randn(5, 5)
   #print(f"Matrice B : {B:.2f}\n", )
   print(f"Matrice B :\n {B}", )
-  C = B[A<2]                                # on applique à B le fi
+  C = B[A<2]                                # on applique à B le filtre
   print(f"Vecteur C qui contient les valeurs B filtrées selon le boolean indexing de A: {C}\n")
   
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
 
 if __name__ == '__main__':
    main()

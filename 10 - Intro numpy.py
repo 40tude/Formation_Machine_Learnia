@@ -14,8 +14,9 @@ def main():
   # on peut accèder avec []
   # A.shape[0] = nb de lignes    A.shape[1] = nb de colonnes 
   A = np.array([0, 1, 2, 3])     # 1D et 4 ele
-  print(A.shape, A.ndim, A.size)
+  print(f"Shape : {A.shape} Nb dim : {A.ndim}    Size : {A.size}")
 
+  # On passe z puis x et y
   B = np.zeros((3, 4, 5))          # 3D 3x4x5 ele - On passe le shape sous forme de tuple
   print(B.shape)
   print(type(B.shape))
@@ -35,7 +36,7 @@ def main():
   E = np.eye(4)   # matrice identité
   print(E)
 
-  F = np.linspace(10, 20, 100)      # Une dimension. 100 points entre [10 et 20[]
+  F = np.linspace(10, 20, 100)      # Une dimension. 100 points entre [10 et 20]
   print(F)
   print (F.shape)
 
@@ -50,15 +51,15 @@ def main():
   print(Tab2)
 
 
-  Tab4 = np.vstack((Tab1, Tab2))
+  Tab4 = np.vstack((Tab1, Tab2))                      # Z! on passe un tuple
   print(Tab4)
   Tab5 = np.concatenate((Tab1, Tab2), axis=0)         # axis = 0 => vertical
                                                       # Peut être celle à utiliser car on peut faire axis=2 etc.  
   print(Tab5)
   
-
-  Tab3 = np.hstack((Tab1, Tab2))      # Z! on passe un tuple
+  Tab3 = np.hstack((Tab1, Tab2))                      # Z! on passe un tuple
   print(Tab3)
+  
   Tab6 = np.concatenate((Tab1, Tab2), axis=1)      
   print(Tab6)
 
@@ -100,11 +101,13 @@ def main():
 
 def initialisation(m,n):
   X = np.random.randn(m, n+1)
+  print(X)
   X[:,-1:] = 1
+  print(X)
   return X
 
 
 
 if __name__ == '__main__':
   main()
-  # print(initialisation(3,4))
+  print(initialisation(3,4))
