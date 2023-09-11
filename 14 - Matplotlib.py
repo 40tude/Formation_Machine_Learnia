@@ -10,21 +10,20 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# -----------------------------------------------------------------------------
-# Classique
-def Mode_Classique():
+###############################################################################
+# Mode Classique
+def Mode_Classique_0() -> None :
   x = np.linspace(0, 2, 100)
   y = x**2
 
-  # plt.plot(x, y)
-  # plt.show()
+  plt.plot(x, y)                # Lance l'affichage sans que show() soit invoquée
+  plt.show()
 
-  # x2 = np.linspace(0, 2, 10)
-  # y2 = x2**2
-  # plt.scatter(x2, y2)
-  # plt.show()
-
-  # -----------------------------------------------------------------------------
+  x2 = np.linspace(0, 2, 10)
+  y2 = x2**2
+  plt.scatter(x2, y2)
+  plt.show()
+  
   # Faire simple
   # Apprendre 2 ou 3 paramètres
   # couleur     c  = "red" "black"... see https://matplotlib.org/stable/gallery/color/named_colors.html
@@ -32,10 +31,19 @@ def Mode_Classique():
   # line width  lw =
   # label       label="Courbe" 
 
-  # plt.plot(x, y, c="moccasin", lw=3, ls="--") # nom de couleur CSS
-  # plt.show()
+  plt.plot(x, y/2, c="moccasin", lw=10, ls="--") # nom de couleur CSS
+  plt.show()
+  plt.close(None)                   # None => close current figure
 
-  # -----------------------------------------------------------------------------
+
+  
+
+###############################################################################
+# Mode Classique
+def Mode_Classique_1() -> None :
+  x = np.linspace(0, 2, 100)
+  y = x**2
+ 
   # Cycle de vie d'une figure
   fig = plt.figure()
   #plt.figure(figsize=(12,8))
@@ -48,29 +56,41 @@ def Mode_Classique():
   plt.savefig('Fig1.png')
   plt.savefig('Fig1.svg')
   plt.show()
-  # plt.savefig('Fig1.1.png') # vide ?
+  plt.close(None)                   # None => close current figure
 
 
-  # -----------------------------------------------------------------------------
+###############################################################################
+# Mode Classique
+def Mode_Classique_2() -> None :
+  x = np.linspace(0, 2, 100)
+  y = x**2
+  
   # Sub plots
-  plt.subplot(2, 1, 1)
+  plt.subplot(2, 1, 1)              # row, col, index
   plt.plot(x, y, c="red")
   # fixer la limit en y
-  axes = plt.gca()
+  axes = plt.gca()                  # Get current axes
   axes.set_ylim([None, 8])
 
-  plt.subplot(2, 1, 2)
+  plt.subplot(2, 1, 2)              # row, col, index
   plt.plot(x, x**3, c="blue")
     
   plt.show()
+  plt.close(None)                   # None => close current figure
 
 
-def Mode_Objet():
+
+
+
+
+###############################################################################
+# Mode Objet
+def Mode_Objet() -> None:
 
   x = np.linspace(0, 2, 100)
   y = x**2
 
-  fig, graphe = plt.subplots() # bien voir le s à subplot
+  fig, graphe = plt.subplots()      # bien voir le s à subplots
   graphe.plot(x, y)
   plt.show()
 
@@ -88,7 +108,7 @@ def Exercice():
   XMax = 50
   dataset = {f"Experience{i}" : np.random.randn(XMax) for i in range(NbChart)}
 
-  # affiche els courbes sur un seule figure
+  # affiche les courbes sur un seule figure
   fig, graphes = plt.subplots(4, 1, sharex=True)
   fig.suptitle("Titre de la figure")
   for i in range(NbChart):
@@ -135,10 +155,14 @@ def Corrigé2():
 
 # -----------------------------------------------------------------------------
 def main():
-  #Mode_Classique()
-  #Mode_Objet()
-  #Exercice()
-  #Corrigé()
+  
+  Mode_Classique_0()
+  Mode_Classique_1()
+  Mode_Classique_2()
+  
+  Mode_Objet()
+  Exercice()
+  Corrigé()
   Corrigé2()
 
 if __name__ == '__main__':
