@@ -73,7 +73,7 @@ def Mode_Classique_2() -> None :
   y = x**2
   
   # Sub plots
-  plt.subplot(2, 1, 1)              # row, col, index
+  plt.subplot(2, 1, 1)              # row, col, index starts at 1
   plt.plot(x, y, c="red")
   # fixer la limit en y
   axes = plt.gca()                  # Get current axes
@@ -130,14 +130,14 @@ def Mode_Objet_1() -> None:
 # -----------------------------------------------------------------------------
 def Exercice():
   # crée un dataset
-  NbChart = 4
+  NbCharts = 4
   XMax = 50
-  dataset = {f"Experience{i}" : np.random.randn(XMax) for i in range(NbChart)}
+  dataset = {f"Experience{i}" : np.random.randn(XMax) for i in range(NbCharts)}
 
   # affiche les courbes sur un seule figure
-  fig, axs = plt.subplots(4, 1, sharex=True)
+  fig, axs = plt.subplots(NbCharts, 1, sharex=True)
   fig.suptitle("Titre de la figure")
-  for i in range(NbChart):
+  for i in range(NbCharts):
     axs[i].plot(range(XMax), dataset[f"Experience{i}"], label=f"Experience {i}:")
     axs[i].legend(loc="upper left")
   
@@ -155,7 +155,7 @@ def Corrigé():
   n = len(dataset)
   plt.figure(figsize=(12,8))
   for k,i in zip(dataset.keys(), range(1, n+1)):  # attention au s de keys
-    plt.subplot(n, 1, i)
+    plt.subplot(n, 1, i)                          # Z! index starts at 1
     plt.plot(dataset[k])
     plt.title(k)
   # plt.show()  
@@ -179,6 +179,10 @@ def Corrigé2():
 
 
 
+
+
+
+
 # -----------------------------------------------------------------------------
 def main():
   
@@ -190,8 +194,8 @@ def main():
   # Mode_Objet_1()
 
   Exercice()
-  # Corrigé()
-  #Corrigé2()
+  Corrigé()
+  Corrigé2()
 
 if __name__ == '__main__':
   main()
