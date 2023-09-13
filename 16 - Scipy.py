@@ -244,38 +244,47 @@ def Bacteries():
   image = image[:,:,0] #subseting, enlève la 3eme dimension. Pas oublier img = img...
   print(image.shape)
   
-  plt.imshow(image, cmap="gray")
-  # plt.show()
+  fig1, ax1 = plt.subplots()
+  ax1.imshow(image)
+  #plt.show()
 
   # Extraire les bacteries de l'arr plan
+  # 1 - Histogramme de l'image
   image_2 = np.copy(image)
-  plt.hist(image_2.ravel(), bins=255)
-  
+  # 0-255 = 256
+  fig2, ax2 = plt.subplots()
+  ax2.hist(image_2.ravel(), bins=255)
   # plt.show()
 
-  # on veut garder les pixels les plus sombres
-  # on filtre tout ce qui est inf à 0.6 avec boolean indexing
-  image = image < 0.6
+  # 2 - garder les pixels les plus sombres
+  # filtrer ce qui est < à 0.6 avec boolean indexing
+  image  = image < 0.6
   # image est dorénavant un masque booléen
-  plt.imshow(image)
+  fig3, ax3 = plt.subplots()
+  ax3.imshow(image)
   # plt.show()
   
   # retirer les artefacts, les pixels isolés
-  OpenX = ndimage.binary_opening(image)
-  plt.imshow(OpenX)
+  open_x = ndimage.binary_opening(image)
+  # plt.imshow(open_x)
   # plt.show()
+  fig4, ax4 = plt.subplots()
+  ax4.imshow(open_x)
   
   # labeliser le contenu
-  LabeledImage, NbLabels = ndimage.label(OpenX)
+  LabeledImage, NbLabels = ndimage.label(open_x)
   print(NbLabels)
-  plt.imshow(LabeledImage)
-  plt.show()
+  #plt.imshow(LabeledImage)
+  #plt.show()
+  fig5, ax5 = plt.subplots()
+  ax5.imshow(LabeledImage)
 
-  #Compter le nb de pixels dans chaque bactérie
-  sizes = ndimage.sum(OpenX, LabeledImage, range(NbLabels))
+  # Compter le nb de pixels dans chaque bactérie
+  #sizes = ndimage.sum(open_x, LabeledImage, range(NbLabels))
+  sizes = ndimage.sum_labels(open_x, LabeledImage, range(NbLabels))
 
-  fig, ax = plt.subplots()
-  ax.scatter(range(NbLabels), sizes)
+  fig6, ax6 = plt.subplots()
+  ax6.scatter(range(NbLabels), sizes)
   plt.show()
 
   
