@@ -100,9 +100,9 @@ def main():
   # boolean indexing (utile en ML et DS)
   A = np.random.randint(0, 100, [5,5])
   print("Matrice A : \n", A)
-  print ("Masque A < 5 : \n", A < 5)            # A<5 retourne un tableau 5x5, un masque
-  # Mettre à 10 tous les elements inf à 5
-  A[A < 5] = 10
+  print ("Masque A < 50 : \n", A < 50)            # A<5 retourne un tableau 5x5, un masque
+  # Mettre à 100 tous les elements inf à 5
+  A[A < 25] = 100
   print("Matrice A : \n", A)
 
   A = np.random.randint(0, 10, [5,5])
