@@ -59,11 +59,11 @@ def main():
 
   # ----------------------------------------------
   # slicing A[debut:fin:pas, debut:fin:pas]
-  print("Colonne 0 : ", A[:, 0])
-  print("Colonne 2 : ", A[:, 2])
-  print("Ligne 1   : ", A[1, :])
-  print("Ligne 2   : ", A[2])                     # on est row-ligne major comme en C++
-
+  print("Colonne 0          : ", A[:, 0])
+  print("Colonne 2          : ", A[:, 2])
+  print("Ligne 1            : ", A[1, :])
+  print("Ligne 2            : ", A[2])                     # on est row-ligne major comme en C++
+  print("2 premières lignes : ", A[:2])                    # Afiche les 2 premières lignes (indices 0 et 1)
   
   # ----------------------------------------------
   # subseting
