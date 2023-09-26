@@ -13,7 +13,7 @@ def main():
   # shape retourne un tuple
   # on peut accèder avec []
   # A.shape[0] = nb de lignes    A.shape[1] = nb de colonnes 
-  A = np.array([0, 1, 2, 3])     # 1D et 4 ele
+  A = np.array([0, 1, 2, 3])     # 1D et 4 ele dans la colonnne
   print(f"Shape : {A.shape} Nb dim : {A.ndim}    Size : {A.size}")
 
   # On passe z puis x et y
