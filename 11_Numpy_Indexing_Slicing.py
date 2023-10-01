@@ -102,7 +102,8 @@ def main():
   print("Matrice A : \n", A)
   print ("Masque A < 50 : \n", A < 50)            # A<5 retourne un tableau 5x5, un masque
   # Mettre à 100 tous les elements inf à 5
-  A[A < 25] = 100
+  mask = A<25
+  A[mask] = 100                 # A[A < 25] = 100
   print("Matrice A : \n", A)
 
   A = np.random.randint(0, 10, [5,5])
